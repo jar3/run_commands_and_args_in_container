@@ -27,8 +27,6 @@ En Docker, `ENTRYPOINT` es como la profesión principal de una persona. Por ejem
   Es como decir: "Este chef siempre cocinará (nginx), y por defecto, cocinará pasta con salsa roja (-g daemon off;)".
 - En Kubernetes, puedes sobrescribir este comportamiento para cambiar lo que hace o cómo lo hace.
 
-## Ejemplos de uso con analogías cotidianas
-
 ### Comportamiento predeterminado:
 Si una imagen de contenedor tiene definido:
 ```dockerfile

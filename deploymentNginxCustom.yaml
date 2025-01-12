@@ -1,0 +1,11 @@
+# Deployment 2: Custom Command (Sleep)
+apiVersion: v1
+kind: Pod
+metadata:
+  name: custom-command-pod
+spec:
+  containers:
+    - name: custom-container
+      image: ghcr.io/${{ github.repository }}:latest
+      command: ["sleep"]
+      args: ["3600"]
