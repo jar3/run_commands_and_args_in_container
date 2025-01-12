@@ -1,5 +1,13 @@
 # Comandos y Argumentos en Kubernetes
 
+## Como usar el repositorio
+1) Clonar repo
+2) Si quieren la full experience puede usar la github action para builder una imagen (deben dejarla publica en sus repos)
+3) Si no pueden usar mi imagen ya buildeada desde el Dockerfile que esta en el repo con el ENTRYPOINT y CMD de ejemplos
+4) Ejecutar codespace
+5) Desplegar los dos deployment yaml y describir los pods pasa ver como en el custom se rescribe el command y el arg
+##
+
 Los campos `command` y `args` en Kubernetes permiten personalizar el comportamiento de los contenedores durante su ejecución. Para entenderlo de manera sencilla, pensemos en ejemplos de la vida cotidiana que nos ayuden a comprender estos conceptos.
 
 ## ¿Qué son Command y Args?
@@ -57,6 +65,34 @@ En este caso:
 - `command` le dice al chef que siga siendo un cocinero (nginx).
 - `args` le dice que haga pasta con salsa roja (-g daemon off;).
 
+```bash
+Describimos el pod
+kubectl describe pod nginx-default-command
+Name:             nginx-default-command
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Sun, 12 Jan 2025 04:01:12 +0000
+Labels:           <none>
+Annotations:      <none>
+Status:           Pending
+IP:               
+IPs:              <none>
+Containers:
+  default-container:
+    Container ID:  
+    Image:         ghcr.io/jar3/run_commands_and_args_in_container:latest
+    Image ID:      
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      nginx
+    Args:
+      -g
+      daemon off;
+```
+
 ### Reemplazar completamente el comando:
 Supongamos que quieres que el chef haga algo totalmente diferente, como dormir 1 hora:
 ```yaml
@@ -78,6 +114,33 @@ sleep 3600
 ```
 En lugar de cocinar.
 
+Describimos el pod 
+```bash
+$ kubectl describe pod custom-command-pod
+Name:             custom-command-pod
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Sun, 12 Jan 2025 04:02:41 +0000
+Labels:           <none>
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.8
+IPs:
+  IP:  10.244.0.8
+Containers:
+  custom-container:
+    Container ID:  docker://aa26477bcbec9f36d6335f248e25ee9a5074beb56f5ce6ef83e85dbcfbc95d79
+    Image:         ghcr.io/jar3/run_commands_and_args_in_container:latest
+    Image ID:      docker-pullable://ghcr.io/jar3/run_commands_and_args_in_container@sha256:aa6272b89ddd60b5d4014c44fbf3c25d6c74f41ed47a8fcfebc3a83ff77c3d11
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      sleep
+    Args:
+      3600
+```
 ## ¿Por qué son útiles?
 1. **Flexibilidad:** Puedes pedirle al chef que cocine algo diferente sin contratar a otro chef (sin reconstruir la imagen Docker).
 2. **Configuración en tiempo de ejecución:** Dependiendo de la fiesta (entorno), puedes personalizar las indicaciones.
