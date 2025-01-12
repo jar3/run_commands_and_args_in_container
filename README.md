@@ -76,7 +76,7 @@ Node:             minikube/192.168.49.2
 Start Time:       Sun, 12 Jan 2025 04:01:12 +0000
 Labels:           <none>
 Annotations:      <none>
-Status:           Pending
+Status:           Running
 IP:               
 IPs:              <none>
 Containers:
