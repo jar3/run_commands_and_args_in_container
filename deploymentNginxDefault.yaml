@@ -6,6 +6,6 @@ metadata:
 spec:
   containers:
     - name: default-container
-      image: ghcr.io//jar3/run_commands_and_args_in_container:latest
+      image: ghcr.io/jar3/run_commands_and_args_in_container:latest
       command: ["nginx"]
       args: ["-g", "daemon off;"]
