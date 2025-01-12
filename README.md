@@ -1,4 +1,4 @@
-# Comandos y Argumentos en Kubernetes (Explicado con Ejemplos Cotidianos)
+# Comandos y Argumentos en Kubernetes
 
 Los campos `command` y `args` en Kubernetes permiten personalizar el comportamiento de los contenedores durante su ejecución. Para entenderlo de manera sencilla, pensemos en ejemplos de la vida cotidiana que nos ayuden a comprender estos conceptos.
 
@@ -90,8 +90,7 @@ En lugar de cocinar.
 2. Si especificas `command`, este reemplaza completamente el trabajo principal del chef (ENTRYPOINT), y el trabajo predeterminado (CMD) será ignorado a menos que lo agregues explícitamente como `args`.
 
 ## Resumen
-Los campos `command` y `args` en Kubernetes son como dar instrucciones claras y personalizadas a un chef (el contenedor) sobre qué hacer y cómo hacerlo. Te permiten controlar su comportamiento de manera flexible, sin necesidad de modificar su "profesión" (imagen Docker). Conocer estas opciones te ayudará a gestionar y desplegar aplicaciones en Kubernetes como todo un experto.
-# run_commands_and_args_in_container
+Los campos `command` y `args` en Kubernetes son como dar instrucciones claras y personalizadas a un chef (el contenedor) sobre qué hacer y cómo hacerlo. Te permiten controlar su comportamiento de manera flexible, sin necesidad de modificar su "profesión" (imagen Docker). Conocer estas opciones te ayudará a gestionar y desplegar aplicaciones en Kubernetes de manera agil y sencilla.
 
-## DOC
-https://medium.com/@achanandhi.m/how-to-run-commands-and-args-in-container-185d74f4e689
+
+
