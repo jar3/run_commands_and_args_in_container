@@ -65,9 +65,9 @@ En este caso:
 - `command` le dice al chef que siga siendo un cocinero (nginx).
 - `args` le dice que haga pasta con salsa roja (-g daemon off;).
 
-```bash
 Describimos el pod
-kubectl describe pod nginx-default-command
+```bash
+$ kubectl describe pod nginx-default-command
 Name:             nginx-default-command
 Namespace:        default
 Priority:         0
